@@ -13,7 +13,3 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
 }
-
-test {
-    useJUnitPlatform()
-}
