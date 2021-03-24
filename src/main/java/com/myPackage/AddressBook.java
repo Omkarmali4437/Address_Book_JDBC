@@ -60,11 +60,14 @@ public class AddressBook {
         return addressBookList;
     }
 
-    public static void listdrivers(){
-        Enumeration<Driver> driverlist=DriverManager.getDrivers();
-        while(driverlist.hasMoreElements()){
-            Driver driverClass=(Driver) driverlist.nextElement();
-            System.out.println(" "+driverClass.getClass().getName());
+    public void updateData(){
+        String sql_query="Update address_book set state='Bihar' where id='3'; ";
+        try {
+            Connection connection=this.getConnection();
+            Statement statement=connection.createStatement();
+            long resultSet=statement.executeLargeUpdate(sql_query);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
