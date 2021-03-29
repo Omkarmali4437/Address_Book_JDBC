@@ -1,5 +1,7 @@
 package com.myPackage;
 
+import java.util.Date;
+
 public class AddressBookData {
 
     private String firstName;
@@ -10,9 +12,9 @@ public class AddressBookData {
     private int zip;
     private int phoneNumber;
     private String email;
-    private String date;
+    private Date date;
 
-    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email,String date){
+    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email,Date date){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -103,11 +105,11 @@ public class AddressBookData {
         this.email = email;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

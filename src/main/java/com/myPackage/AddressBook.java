@@ -31,7 +31,7 @@ public class AddressBook {
                 AddressBookData addressBook=new AddressBookData(resultSet.getInt(1),resultSet.getString(2)
                         ,resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),
                         resultSet.getString(6),resultSet.getInt(7),resultSet.getInt(8),
-                        resultSet.getString(9),resultSet.getString(10));
+                        resultSet.getString(9),resultSet.getDate(10));
 
                 addressBookList.add(addressBook);
                 connection.commit();
@@ -93,7 +93,7 @@ public class AddressBook {
                 AddressBookData addressBook=new AddressBookData(resultSet.getInt(1),resultSet.getString(2)
                         ,resultSet.getString(3),resultSet.getString(4),resultSet.getString(5),
                         resultSet.getString(6),resultSet.getInt(7),resultSet.getInt(8),
-                        resultSet.getString(9),resultSet.getString(10));
+                        resultSet.getString(9),resultSet.getDate(10));
 
                 addressBookList.add(addressBook);
                 connection.commit();
@@ -146,6 +146,28 @@ public class AddressBook {
             connection.rollback();
         }
         return result;
+    }
 
+    public void insertNewContact(String firstname,String lastname,String address,String city,String state,int zip,int phonenumber,String email,String entry_date) throws SQLException {
+        Connection connection=this.getConnection();
+        try {
+            connection.setAutoCommit(false);
+            PreparedStatement preparedStatement=connection.prepareStatement("insert into address_book(firstname,lastname," +
+                    "address,city,state,zip,phonenumber,email,entry_date) values(?,?,?,?,?,?,?,?,?); ");
+            preparedStatement.setString(1,firstname);
+            preparedStatement.setString(2,lastname);
+            preparedStatement.setString(3,address);
+            preparedStatement.setString(4,city);
+            preparedStatement.setString(5,state);
+            preparedStatement.setInt(6,zip);
+            preparedStatement.setInt(7,phonenumber);
+            preparedStatement.setString(8,email);
+            preparedStatement.setDate(9,Date.valueOf(entry_date));
+            preparedStatement.executeUpdate();
+            connection.commit();
+        }catch (SQLException throwables){
+            throwables.printStackTrace();
+            connection.rollback();
+        }
     }
 }

@@ -65,4 +65,21 @@ public class AddressBookTest {
         String result=addressBook.countByContactbyState(state);
         Assert.assertEquals("2",result);
     }
+
+    @Test
+    public void insert_into_address_book() throws SQLException {
+        String firstname="Iron";
+        String lastname="Man";
+        String address="Tampa";
+        String city="Malibu";
+        String state="California";
+        int zip=908818;
+        int phonenumber=266155211;
+        String email="iron@avenger.in";
+        String entry_date="2020-11-01";
+
+        addressBook.insertNewContact(firstname,lastname,address,city,state,zip,phonenumber,email,entry_date);
+        List<AddressBookData> addressBookList=addressBook.readData();
+        Assert.assertEquals(4,addressBookList.size());
+    }
 }
