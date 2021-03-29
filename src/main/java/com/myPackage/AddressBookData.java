@@ -10,8 +10,9 @@ public class AddressBookData {
     private int zip;
     private int phoneNumber;
     private String email;
+    private String date;
 
-    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email){
+    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email,String date){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -20,6 +21,7 @@ public class AddressBookData {
         this.zip = zip;
         this.phoneNumber = phoneNumber;
         this.email = email;
+        this.date=date;
     }
 
     public String getFirstName() {
@@ -101,6 +103,14 @@ public class AddressBookData {
         this.email = email;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String toString() {
         return "AddressBookData{" +
@@ -112,6 +122,7 @@ public class AddressBookData {
                 ", zip=" + zip +
                 ", phoneNumber=" + phoneNumber +
                 ", email='" + email + '\'' +
+                ", date='" + date + '\'' +
                 '}';
     }
 }

@@ -43,4 +43,12 @@ public class AddressBookTest {
 
         addressBook.updateContactDetails(lastname,address,city,state,zip,phonenumber,email,firstname);
     }
+
+    @Test
+    public void return_values_for_a_particular_date_range() throws SQLException {
+        String date="2019-01-01";
+
+        List<AddressBookData> addressBookList=addressBook.returnValuesForApaticularDateRange(date);
+        Assert.assertEquals(2,addressBookList.size());
+    }
 }
