@@ -14,7 +14,7 @@ public class AddressBookData {
     private String email;
     private Date date;
 
-    public AddressBookData(int id,String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email,Date date){
+    public AddressBookData(String firstName, String lastName, String address, String city , String state,int zip, int phoneNumber, String email,Date date){
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
